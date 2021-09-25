@@ -14,7 +14,7 @@ class ValidationRules {
       int loanTerm) {
 
     //Если возраст превышает пенсионный возраст на момент возврата кредита --> кредит не выдаётся
-    if (age + loanTerm >= 65 && gender.equals("M") || age + loanTerm >= 60 && gender.equals("F"))
+    if (age + loanTerm > 65 && gender.equals("M") || age + loanTerm > 60 && gender.equals("F"))
       creditNegativeDecision();
 
     //допущение о том, что в кредите должно быть отказано для несовершеннолетнего заявителя

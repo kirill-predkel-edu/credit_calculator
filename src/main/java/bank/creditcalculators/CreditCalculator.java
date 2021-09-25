@@ -4,6 +4,7 @@ import static bank.creditdecisions.Positive.creditPositiveDecision;
 
 public class CreditCalculator {
 
+  public boolean isCreditIsTaken = false;
   ValidationRules validationRules = new ValidationRules();
   AnnualPaymentCalculator annualPaymentCalculator = new AnnualPaymentCalculator();
   CreditAmountCalculator creditAmountCalculator = new CreditAmountCalculator();
@@ -36,5 +37,6 @@ public class CreditCalculator {
 
     //Сообщение пользователю результата по заявке на кредит
     creditPositiveDecision(annualPayment, creditAmount);
+    isCreditIsTaken = true;
   }
 }
