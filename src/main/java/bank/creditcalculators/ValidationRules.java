@@ -26,4 +26,10 @@ class ValidationRules {
       creditNegativeDecision();
     }
   }
+
+  public static void validateAnnualPayment (double annualPayment, int annualIncome) {
+    if (annualPayment > (annualIncome / 2)) {
+      creditNegativeDecision();
+    }
+  }
 }
