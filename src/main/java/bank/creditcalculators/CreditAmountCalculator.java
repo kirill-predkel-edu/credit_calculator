@@ -2,7 +2,7 @@ package bank.creditcalculators;
 
 public class CreditAmountCalculator {
 
-  public double calculateCreditAmount(String incomeSource, int creditRate) {
+  public int calculateCreditAmount(String incomeSource, int creditRate) {
     int creditAmountByIncomeSource;
     int creditAmountByCreditRate;
 

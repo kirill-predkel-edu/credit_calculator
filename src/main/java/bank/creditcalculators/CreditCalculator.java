@@ -15,7 +15,7 @@ public class CreditCalculator {
       String incomeSource,
       int annualIncome,
       int creditRate,
-      int requestedAmount,
+      double requestedAmount,
       int creditTerm,
       String purpose) {
 
@@ -23,7 +23,7 @@ public class CreditCalculator {
     validationRules.validateApplicant(age, gender, incomeSource, annualIncome, creditRate, requestedAmount, creditTerm);
 
     //Расчёт доступной для выдачи суммы кредита
-    double creditAmount = creditAmountCalculator.calculateCreditAmount(incomeSource, creditRate);
+    int creditAmount = creditAmountCalculator.calculateCreditAmount(incomeSource, creditRate);
 
     //Расчёт кредитного модификатора
     double creditModifier = modifiersCalculator.calculateModifiers(creditRate, purpose, requestedAmount, incomeSource);
@@ -35,6 +35,6 @@ public class CreditCalculator {
     validationRules.validateAnnualPayment(annualPayment, annualIncome);
 
     //Сообщение пользователю результата по заявке на кредит
-    creditPositiveDecision(annualPayment);
+    creditPositiveDecision(annualPayment, creditAmount);
   }
 }

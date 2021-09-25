@@ -4,7 +4,7 @@ import static java.lang.Math.log10;
 
 public class ModifiersCalculator {
 
-  public double calculateModifiers(int creditRate, String purpose, int requestedAmount, String incomeSource) {
+  public double calculateModifiers(int creditRate, String purpose, double requestedAmount, String incomeSource) {
 
     double modifierByPurpose = 0;
     double modifierByCreditRate;
