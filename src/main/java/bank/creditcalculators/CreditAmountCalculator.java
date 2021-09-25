@@ -2,23 +2,30 @@ package bank.creditcalculators;
 
 public class CreditAmountCalculator {
 
-  public static double calculateCreditAmount(String incomeSource, int creditRate) {
-    int creditAmountByIncomeSource = 0;
-    int creditAmountByCreditRate = 0;
-    int finalCreditAmount;
+  public double calculateCreditAmount(String incomeSource, int creditRate) {
+    int creditAmountByIncomeSource;
+    int creditAmountByCreditRate;
 
+    /* При пассивном доходе выдаётся кредит на сумму до 1 млн,
+    наёмным работникам - до 5 млн,
+    собственное дело - до 10 млн */
     switch (incomeSource) {
-      case "Пассивный доход":
+      case "пассивный доход":
         creditAmountByIncomeSource = 1;
         break;
-      case "Наёмный работник":
+      case "наёмный работник":
         creditAmountByIncomeSource = 5;
         break;
-      case "Собственный бизнес":
+      case "собственный бизнес":
         creditAmountByIncomeSource = 10;
         break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + incomeSource);
     }
 
+    /* При кредитном рейтинге -1 выдаётся кредит на сумму до 1 млн,
+     при 0 - до 5 млн,
+     при 1 или 2 - до 10 млн */
     switch (creditRate) {
       case -1:
         creditAmountByCreditRate = 1;
@@ -30,10 +37,11 @@ public class CreditAmountCalculator {
       case 2:
         creditAmountByCreditRate = 10;
         break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + creditRate);
     }
 
-    finalCreditAmount = Math.min(creditAmountByCreditRate, creditAmountByIncomeSource);
-
-    return finalCreditAmount;
+    //Если работают несколько условий по сумме кредита - выбирается наименьшая
+    return Math.min(creditAmountByCreditRate, creditAmountByIncomeSource);
   }
 }

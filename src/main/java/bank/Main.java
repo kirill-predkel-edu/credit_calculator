@@ -7,11 +7,11 @@ public class Main {
     CreditCalculator calculator = new CreditCalculator();
     calculator.calculateCredit(18,
         "F",
-        "безработный",
+        "собственный бизнес",
         2,
-        1,
-        5,
+        -1,
         10,
+        15,
         "ипотека");
   }
 }

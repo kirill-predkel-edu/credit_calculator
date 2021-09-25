@@ -1,16 +1,20 @@
 package bank.creditcalculators;
 
-import static java.lang.Math.log;
+import static java.lang.Math.log10;
 
 public class ModifiersCalculator {
 
-  public static double calculateModifiers(int creditRate, String purpose, int requestedAmount, String incomeSource) {
+  public double calculateModifiers(int creditRate, String purpose, int requestedAmount, String incomeSource) {
 
     double modifierByPurpose = 0;
-    double modifierByCreditRate = 0;
-    double modifierByRequestedAmount = 0;
-    double modifierByIncomeSource = 0;
+    double modifierByCreditRate;
+    double modifierByRequestedAmount;
+    double modifierByIncomeSource;
 
+    /* +1.5% для кредитного рейтинга -1,
+    0% для кредитного рейтинга 0,
+    -0.25% для кредитного рейтинга 1,
+    -0.75% для кредитного рейтинга 2 */
     switch (creditRate) {
       case -1:
         modifierByCreditRate = 0.015;
@@ -22,39 +26,54 @@ public class ModifiersCalculator {
         modifierByCreditRate = -0.0025;
         break;
       case 2:
-        modifierByCreditRate = 0.0075;
+        modifierByCreditRate = -0.0075;
         break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + creditRate);
     }
 
+    /* -2% для ипотеки,
+    -0.5% для развития бизнеса,
+    +1.5% для потребительского кредита,
+    для автокредита 0 (совершаем допущение) */
     switch (purpose) {
-      case "Ипотека":
+      case "ипотека":
         modifierByPurpose = -0.02;
         break;
-      case "Развитие бизнеса":
-        modifierByPurpose = -0.05;
+      case "развитие бизнеса":
+        modifierByPurpose = -0.005;
         break;
-      case "Автокредит":
+      case "автокредит":
         modifierByCreditRate = 0;
         break;
-      case "Потребительский":
+      case "потребительский":
         modifierByCreditRate = 0.015;
         break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + purpose);
     }
 
+    /* Для пассивного дохода ставка повышается на 0.5%,
+    для наемных работников ставка снижается на 0.25%,
+    для заемщиков с собственным бизнесом ставка повышается на 0.25% */
     switch (incomeSource) {
-      case "Пассивный доход":
-        modifierByIncomeSource = 0.05;
+      case "пассивный доход":
+        modifierByIncomeSource = 0.005;
         break;
-      case "Наёмный работник":
-        modifierByIncomeSource = -0.025;
+      case "наёмный работник":
+        modifierByIncomeSource = -0.0025;
         break;
-      case "Собственный бизнес":
-        modifierByIncomeSource = 0.025;
+      case "собственный бизнес":
+        modifierByIncomeSource = 0.0025;
         break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + incomeSource);
     }
 
-    modifierByRequestedAmount = -log(requestedAmount);
+    //Модификатор в зависимости от запрошенной суммы рассчитывается по формуле [-log(sum)]
+    modifierByRequestedAmount = -(log10(requestedAmount)) / 100;
 
+    //Все модификаторы процентной ставки суммируются, применяется итоговый модификатор
     return modifierByCreditRate + modifierByPurpose + modifierByIncomeSource + modifierByRequestedAmount;
   }
 }

@@ -1,17 +1,13 @@
 package bank.creditcalculators;
 
-import static bank.creditcalculators.AnnualPaymentCalculator.calculateAnnualPayment;
-import static bank.creditcalculators.CreditAmountCalculator.calculateCreditAmount;
-import static bank.creditcalculators.ModifiersCalculator.calculateModifiers;
-import static bank.creditcalculators.ValidationRules.validateAnnualPayment;
-import static bank.creditcalculators.ValidationRules.validateApplicant;
 import static bank.creditdecisions.Positive.creditPositiveDecision;
 
 public class CreditCalculator {
 
-  public static double creditAmount;
-  public static double creditModifier;
-  public static double annualPayment;
+  ValidationRules validationRules = new ValidationRules();
+  AnnualPaymentCalculator annualPaymentCalculator = new AnnualPaymentCalculator();
+  CreditAmountCalculator creditAmountCalculator = new CreditAmountCalculator();
+  ModifiersCalculator modifiersCalculator = new ModifiersCalculator();
 
   public void calculateCredit(
       int age,
@@ -23,11 +19,22 @@ public class CreditCalculator {
       int creditTerm,
       String purpose) {
 
-    validateApplicant(age, gender, incomeSource, annualIncome, creditRate, requestedAmount, creditTerm);
-    creditModifier = calculateModifiers(creditRate, purpose, requestedAmount, incomeSource);
-    creditAmount = calculateCreditAmount(incomeSource, creditRate);
-    annualPayment = calculateAnnualPayment(creditModifier, creditAmount, creditTerm);
-    validateAnnualPayment(annualPayment, annualIncome);
+    //Валидация на соответствие условиям выдачи кредита
+    validationRules.validateApplicant(age, gender, incomeSource, annualIncome, creditRate, requestedAmount, creditTerm);
+
+    //Расчёт доступной для выдачи суммы кредита
+    double creditAmount = creditAmountCalculator.calculateCreditAmount(incomeSource, creditRate);
+
+    //Расчёт кредитного модификатора
+    double creditModifier = modifiersCalculator.calculateModifiers(creditRate, purpose, requestedAmount, incomeSource);
+
+    //Расчёт годового платежа
+    double annualPayment = annualPaymentCalculator.calculateAnnualPayment(creditModifier, creditAmount, creditTerm);
+
+    //Валидация годового платежа
+    validationRules.validateAnnualPayment(annualPayment, annualIncome);
+
+    //Сообщение пользователю результата по заявке на кредит
     creditPositiveDecision(annualPayment);
   }
 }
