@@ -1,5 +1,6 @@
 package bank.creditcalculators;
 
+import static bank.creditcalculators.CreditAmountCalculator.calculateCreditAmount;
 import static bank.creditcalculators.ModifiersCalculator.calculateModifiers;
 import static bank.creditcalculators.ValidationRules.validateApplicant;
 
@@ -20,5 +21,6 @@ public class CreditCalculator {
 
     validateApplicant(age, gender, incomeSource, annualIncome, creditRate, requestedAmount, loanTerm);
     creditModifier = calculateModifiers(creditRate, purpose, requestedAmount, incomeSource);
+    creditAmount = calculateCreditAmount(incomeSource, creditRate);
   }
 }
