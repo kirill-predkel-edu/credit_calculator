@@ -4,4 +4,4 @@
 Путь к классу: src/main/java/bank/creditcalculations/CreditCalculator.java
 Запустить функцию можно из класса Main.java 
 3. Автотесты находятся в директории: src/test/java/banktest
-Запустить функцию можно из класса CreditCalculatorTest.java 
+Запустить можно из класса CreditCalculatorTest.java 
