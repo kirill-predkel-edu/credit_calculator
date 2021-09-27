@@ -3,4 +3,5 @@
 2. Функция, которая рассчитывает возможность выдачи кредита - calculateCredit() класса CreditCalculator 
 Путь к классу: src/main/java/bank/creditcalculations/CreditCalculator.java
 Запустить функцию можно из класса Main.java 
-3. 
+3. Автотесты находятся в директории: src/test/java/banktest
+Запустить можно из класса CreditCalculatorTest.java 
