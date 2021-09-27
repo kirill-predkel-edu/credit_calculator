@@ -13,7 +13,7 @@ class CreditCalculatorTest {
 
   @BeforeEach
   void setUp() {
-    CreditCalculator.areValidationRulesPassed = true;
+    CreditCalculator.setAreValidationRulesPassed(true);
   }
 
   @Tag("id1")
@@ -27,7 +27,7 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         10, //Срок погашения
         "автокредит"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id2")
@@ -41,7 +41,7 @@ class CreditCalculatorTest {
         2, //Запрошенная сумма
         8, //Срок погашения
         "ипотека"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id3")
@@ -55,7 +55,7 @@ class CreditCalculatorTest {
         3, //Запрошенная сумма
         15, //Срок погашения
         "потребительский"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id4")
@@ -69,7 +69,7 @@ class CreditCalculatorTest {
         0.1, //Запрошенная сумма
         5, //Срок погашения
         "развитие бизнеса"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id5")
@@ -83,7 +83,7 @@ class CreditCalculatorTest {
         10, //Запрошенная сумма
         1, //Срок погашения
         "ипотека"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id6")
@@ -97,7 +97,7 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         1, //Срок погашения
         "потребительский"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id7")
@@ -111,7 +111,7 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         10, //Срок погашения
         "развитие бизнеса"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id8")
@@ -125,7 +125,7 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         3, //Срок погашения
         "автокредит"); //Цель;
-    assertFalse(calculator.isCreditTaken, "Кредит отменён?");
+    assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
   @Tag("id9")
@@ -135,12 +135,12 @@ class CreditCalculatorTest {
         "F", //Пол
         "собственный бизнес", //Источник дохода
         25, //Доход за последний год, млн
-        1, //Кредитный рейтинг
+        -1, //Кредитный рейтинг
         2.5, //Запрошенная сумма
         19, //Срок погашения
         "потребительский"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(1.66, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(0.17, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id10")
@@ -154,8 +154,8 @@ class CreditCalculatorTest {
         2.5, //Запрошенная сумма
         4, //Срок погашения
         "развитие бизнеса"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(1.69, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(1.69, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id11")
@@ -169,8 +169,8 @@ class CreditCalculatorTest {
         0.2, //Запрошенная сумма
         7, //Срок погашения
         "ипотека"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(0.23, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(0.23, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id12")
@@ -184,8 +184,8 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         3, //Срок погашения
         "потребительский"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(4.51, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(4.51, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id13")
@@ -199,8 +199,8 @@ class CreditCalculatorTest {
         9.9, //Запрошенная сумма
         5, //Срок погашения
         "потребительский"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(1.51, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(1.51, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id14")
@@ -214,8 +214,8 @@ class CreditCalculatorTest {
         0.2, //Запрошенная сумма
         15, //Срок погашения
         "автокредит"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(0.18, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(0.18, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id15")
@@ -229,8 +229,8 @@ class CreditCalculatorTest {
         10, //Запрошенная сумма
         5, //Срок погашения
         "развитие бизнеса"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(0.29, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(0.29, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id16")
@@ -244,8 +244,8 @@ class CreditCalculatorTest {
         0.1, //Запрошенная сумма
         2, //Срок погашения
         "ипотека"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(2.96, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(2.96, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id17")
@@ -259,8 +259,8 @@ class CreditCalculatorTest {
         1, //Запрошенная сумма
         20, //Срок погашения
         "ипотека"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(0.6, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(0.6, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
   @Tag("id18")
@@ -274,7 +274,7 @@ class CreditCalculatorTest {
         5, //Запрошенная сумма
         1, //Срок погашения
         "потребительский"); //Цель;
-    assertTrue(calculator.isCreditTaken, "Кредит одобрен?");
-    assertEquals(1.11, calculator.annualPayment, "Размер годового платежа неверен");
+    assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    assertEquals(1.11, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 }

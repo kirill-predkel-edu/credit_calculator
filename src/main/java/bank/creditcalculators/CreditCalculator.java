@@ -2,10 +2,21 @@ package bank.creditcalculators;
 
 public class CreditCalculator {
 
-  public static boolean areValidationRulesPassed = true;
-  public double annualPayment = 0;
-  public boolean isCreditTaken = false;
   int creditAmount = 0;
+  private boolean isCreditTaken = false;
+  private static boolean areValidationRulesPassed = true;
+  private double annualPayment = 0;
+
+  public static void setAreValidationRulesPassed(boolean areValidationRulesPassed) {
+    CreditCalculator.areValidationRulesPassed = areValidationRulesPassed;
+  }
+
+  public double getAnnualPayment() {
+    return annualPayment;
+  }
+  public boolean isCreditTaken() {
+    return isCreditTaken;
+  }
 
   ValidationRules validationRules = new ValidationRules();
   AnnualPaymentCalculator annualPaymentCalculator = new AnnualPaymentCalculator();
