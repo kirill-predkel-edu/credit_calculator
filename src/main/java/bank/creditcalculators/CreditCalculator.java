@@ -1,10 +1,12 @@
 package bank.creditcalculators;
 
-import static bank.creditdecisions.Positive.creditPositiveDecision;
-
 public class CreditCalculator {
 
-  public boolean isCreditIsTaken = false;
+  public static boolean areValidationRulesPassed = true;
+  public double annualPayment = 0;
+  public boolean isCreditTaken = false;
+  int creditAmount = 0;
+
   ValidationRules validationRules = new ValidationRules();
   AnnualPaymentCalculator annualPaymentCalculator = new AnnualPaymentCalculator();
   CreditAmountCalculator creditAmountCalculator = new CreditAmountCalculator();
@@ -21,22 +23,38 @@ public class CreditCalculator {
       String purpose) {
 
     //Валидация на соответствие условиям выдачи кредита
-    validationRules.validateApplicant(age, gender, incomeSource, annualIncome, creditRate, requestedAmount, creditTerm);
+    validationRules.validateApplicant(age, gender, incomeSource, annualIncome, creditRate,
+        requestedAmount, creditTerm);
 
-    //Расчёт доступной для выдачи суммы кредита
-    int creditAmount = creditAmountCalculator.calculateCreditAmount(incomeSource, creditRate);
+    if (areValidationRulesPassed) {
+      //Расчёт доступной для выдачи суммы кредита
+      creditAmount = creditAmountCalculator.calculateCreditAmount(incomeSource, creditRate);
 
-    //Расчёт кредитного модификатора
-    double creditModifier = modifiersCalculator.calculateModifiers(creditRate, purpose, requestedAmount, incomeSource);
+      //Расчёт кредитного модификатора
+      double creditModifier = modifiersCalculator.calculateModifiers(creditRate, purpose, requestedAmount,
+          incomeSource);
 
-    //Расчёт годового платежа
-    double annualPayment = annualPaymentCalculator.calculateAnnualPayment(creditModifier, creditAmount, creditTerm);
+      //Расчёт годового платежа
+      annualPayment = annualPaymentCalculator.calculateAnnualPayment(creditModifier, creditAmount, creditTerm);
+    }
 
     //Валидация годового платежа
     validationRules.validateAnnualPayment(annualPayment, annualIncome);
 
-    //Сообщение пользователю результата по заявке на кредит
-    creditPositiveDecision(annualPayment, creditAmount);
-    isCreditIsTaken = true;
+    if (areValidationRulesPassed) {
+      //Сообщение пользователю результата по заявке на кредит
+      creditPositiveDecision(annualPayment, creditAmount);
+      isCreditTaken = true;
+    }
+  }
+
+  static void creditNegativeDecision() {
+    System.out.println("В выдаче кредита отказано");
+    areValidationRulesPassed = false;
+  }
+
+  void creditPositiveDecision(double annualPayment, int creditAmount) {
+    System.out.format("Заявка на кредит одобрена на сумму %d млн, годовой платёж составляет: %.2f млн ", creditAmount,
+        annualPayment);
   }
 }

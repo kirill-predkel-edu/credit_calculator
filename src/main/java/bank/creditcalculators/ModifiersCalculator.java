@@ -29,7 +29,7 @@ public class ModifiersCalculator {
         modifierByCreditRate = -0.0075;
         break;
       default:
-        throw new IllegalStateException("Unexpected value: " + creditRate);
+        throw new IllegalStateException("Невалидный кредитный рейтинг" + creditRate);
     }
 
     /* -2% для ипотеки,
@@ -50,7 +50,7 @@ public class ModifiersCalculator {
         modifierByCreditRate = 0.015;
         break;
       default:
-        throw new IllegalStateException("Unexpected value: " + purpose);
+        throw new IllegalStateException("Невалидная цель кредита" + purpose);
     }
 
     /* Для пассивного дохода ставка повышается на 0.5%,
@@ -67,7 +67,7 @@ public class ModifiersCalculator {
         modifierByIncomeSource = 0.0025;
         break;
       default:
-        throw new IllegalStateException("Unexpected value: " + incomeSource);
+        throw new IllegalStateException("Невалидный источник дохода" + incomeSource);
     }
 
     //Модификатор в зависимости от запрошенной суммы рассчитывается по формуле [-log(sum)]

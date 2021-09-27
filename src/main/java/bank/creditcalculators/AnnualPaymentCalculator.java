@@ -10,6 +10,7 @@ public class AnnualPaymentCalculator {
     /* Годовой платеж по кредиту определяется по следующей формуле:
     (<сумма кредита> * (1 + <срок погашения> *
     (<базовая ставка> + <модификаторы>))) / <срок погашения> */
-    return (creditAmount * (1 + creditTerm * (creditModifier + basicModifier))) / creditTerm;
+    double annualPayment = (creditAmount * (1 + creditTerm * (creditModifier + basicModifier))) / creditTerm;
+    return Math.round(annualPayment * 100.0) / 100.0;
   }
 }
