@@ -1,6 +1,6 @@
 package ci.region
 
-import script.StaticScript
+import script.*
 
 def module
 
@@ -18,7 +18,7 @@ pipeline {
         echo 'Testing..'
         script {
           module = new StaticScript()
-          echo module.getBuildString()
+          echo module.getStaticString()
         }
       }
     }
