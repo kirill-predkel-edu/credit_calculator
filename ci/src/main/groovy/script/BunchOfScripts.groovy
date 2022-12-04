@@ -12,4 +12,8 @@ class SecondScript {
     }
 }
 
+Object getProperty(String name){
+    return this.getClass().getClassLoader().loadClass(name)
+}
+
 return this
