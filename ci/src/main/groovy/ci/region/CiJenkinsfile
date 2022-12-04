@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          echo test.getBuildString()
+          echo "skip"
         }
       }
     }
