@@ -6,7 +6,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          sh "build jenkins file is running"
+          echo "build jenkins file is running"
         }
       }
     }
@@ -14,7 +14,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          sh "root jenkins file is running"
+          echo "root jenkins file is running"
         }
       }
     }
