@@ -1,6 +1,6 @@
 package ci.region
 
-import script.EchoScript
+import script.*
 
 def module
 
