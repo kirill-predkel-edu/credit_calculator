@@ -1,9 +1,6 @@
 package ci.region
 
-import script.EchoScript
-import script.StaticScript
-
-def test = new EchoScript()
+def module = load "script/StaticScript.groovy"
 
 pipeline {
   agent any
@@ -21,7 +18,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo StaticScript.getStaticString()
+          echo module.getStaticString()
         }
       }
     }
