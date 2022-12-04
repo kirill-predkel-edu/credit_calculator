@@ -1,6 +1,6 @@
 package ci.region
 
-def module = load "script/StaticScript.groovy"
+def module
 
 pipeline {
   agent any
@@ -12,6 +12,7 @@ pipeline {
         script {
           echo "skip"
         }
+        module = load "script/StaticScript.groovy"
       }
     }
     stage('Test') {
