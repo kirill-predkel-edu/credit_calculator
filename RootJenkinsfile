@@ -1,4 +1,4 @@
-def z =
+def module
 
 pipeline {
   agent any
@@ -8,7 +8,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          echo "build jenkins file is running"
+          module = load "StaticRootScript.groovy"
         }
       }
     }
@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo "root jenkins file is running"
+          echo module.name
         }
       }
     }
