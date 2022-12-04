@@ -15,7 +15,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo StaticScript.getStaticString()
+          echo StaticScript.name
         }
       }
     }
