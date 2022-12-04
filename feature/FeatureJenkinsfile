@@ -1,6 +1,4 @@
-import ci.script.EchoScript
-
-def test = new EchoScript()
+def module
 
 pipeline {
   agent any
@@ -10,7 +8,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          echo test.getBuildString()
+          module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
       }
     }
@@ -18,7 +16,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo "root jenkins file is running"
+          echo module.name
         }
       }
     }
