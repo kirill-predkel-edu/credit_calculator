@@ -2,7 +2,7 @@ package ci.region
 
 import script.*
 
-def module
+def module = new EchoScript()
 
 pipeline {
   agent any
@@ -11,9 +11,6 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        script {
-          module = new EchoScript()
-        }
       }
     }
     stage('Test') {
