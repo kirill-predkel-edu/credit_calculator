@@ -1,8 +1,8 @@
 package ci.region
 
-import script.*
+import script.StaticScript
 
-def module = new EchoScript()
+def module
 
 pipeline {
   agent any
@@ -17,6 +17,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
+          module = new StaticScript()
           echo module.getBuildString()
         }
       }
