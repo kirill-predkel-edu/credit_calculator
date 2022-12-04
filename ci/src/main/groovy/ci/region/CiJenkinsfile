@@ -1,4 +1,7 @@
-import ci.script.EchoScript
+package ci.region
+
+import script.EchoScript
+import script.StaticScript
 
 def test = new EchoScript()
 
@@ -18,7 +21,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo "root jenkins file is running"
+          echo StaticScript.getStaticString()
         }
       }
     }
