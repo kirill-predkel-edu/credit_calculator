@@ -1,2 +1,5 @@
 rootProject.name = 'Credit Calculator'
+include 'ci'
+include 'core'
+include 'feature'
 

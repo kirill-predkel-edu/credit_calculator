@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building..'
+        script {
+          bat 'gradle clean build -x test'
+        }
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+        script {
+          sh "root jenkins file is running"
+        }
+      }
+    }
+  }
+}
