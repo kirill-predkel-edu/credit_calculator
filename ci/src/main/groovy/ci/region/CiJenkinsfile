@@ -2,8 +2,6 @@ package ci.region
 
 import script.*
 
-def module
-
 pipeline {
   agent any
 
@@ -17,8 +15,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          module = new StaticScript()
-          echo module.getStaticString()
+          echo StaticScript.getStaticString()
         }
       }
     }
