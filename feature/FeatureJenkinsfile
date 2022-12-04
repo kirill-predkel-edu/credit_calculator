@@ -1,4 +1,6 @@
-def z =
+import script.EchoScript
+
+def test = new EchoScript()
 
 pipeline {
   agent any
@@ -8,7 +10,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          echo "build jenkins file is running"
+          echo test.getBuildString()
         }
       }
     }
