@@ -9,7 +9,9 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        module = load "ci/src/main/groovy/script/StaticScript.groovy"
+        script {
+          module = load "ci/src/main/groovy/script/StaticScript.groovy"
+        }
       }
     }
     stage('Test') {
