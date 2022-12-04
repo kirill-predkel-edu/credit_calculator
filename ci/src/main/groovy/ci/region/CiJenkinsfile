@@ -10,9 +10,8 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          echo "skip"
+          module = load "script/StaticScript.groovy"
         }
-        module = load "script/StaticScript.groovy"
       }
     }
     stage('Test') {
