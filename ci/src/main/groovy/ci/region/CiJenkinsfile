@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          module = load "script/StaticScript.groovy"
+          module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
       }
     }
