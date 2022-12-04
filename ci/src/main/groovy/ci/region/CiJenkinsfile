@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          module = load "ci/src/main/groovy/script/StaticScript.groovy"
+          module = load "ci/src/main/groovy/script/BunchOfScripts.groovy"
         }
       }
     }
@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo module.name
+          echo module.FirstScript.a()
         }
       }
     }

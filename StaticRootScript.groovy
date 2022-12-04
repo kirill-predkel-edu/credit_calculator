@@ -1,5 +1,3 @@
-package script
-
 import groovy.transform.Field
 
 static def getStaticString() {
