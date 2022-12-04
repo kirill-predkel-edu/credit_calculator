@@ -1,6 +1,6 @@
 package ci.region
 
-import script.*
+def module
 
 pipeline {
   agent any
@@ -9,13 +9,14 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
+        module = load "ci/src/main/groovy/script/StaticScript.groovy"
       }
     }
     stage('Test') {
       steps {
         echo 'Testing..'
         script {
-          echo StaticScript.name
+          echo module.name
         }
       }
     }
