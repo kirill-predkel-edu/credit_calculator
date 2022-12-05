@@ -20,7 +20,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo bunchOfScripts.getProperty('FirstClass').a()
+          //echo bunchOfScripts.getProperty('FirstClass').a() не разрешено
           scriptWithPipeline(10)
         }
       }
