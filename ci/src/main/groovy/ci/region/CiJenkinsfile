@@ -1,6 +1,7 @@
 package ci.region
 
-def module
+def bunchOfScripts
+def scriptWithPipeline
 
 pipeline {
   agent any
@@ -10,7 +11,8 @@ pipeline {
       steps {
         echo 'Building..'
         script {
-          module = load "ci/src/main/groovy/script/BunchOfScripts.groovy"
+          bunchOfScripts = load "ci/src/main/groovy/script/BunchOfScripts.groovy"
+          scriptWithPipeline = load "ci/src/main/groovy/ci/region/ScriptWithPipeline.groovy"
         }
       }
     }
@@ -18,7 +20,8 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo module..getProperty('FirstClass').a()
+          echo bunchOfScripts.getProperty('FirstClass').a()
+          scriptWithPipeline(10)
         }
       }
     }
