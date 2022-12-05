@@ -1,3 +1,29 @@
 package ci.region
 
-ScriptWithPipeline(10)
+def bunchOfScripts
+def scriptWithCall
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                script {
+                    bunchOfScripts = load "ci/src/main/groovy/script/BunchOfScripts.groovy"
+                    scriptWithCall = new ScriptWithCall()
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                script {
+                    //echo bunchOfScripts.getProperty('FirstClass').a() не разрешено
+                    echo scriptWithCall(10)
+                }
+            }
+        }
+    }
+}
