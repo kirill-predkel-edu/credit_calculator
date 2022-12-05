@@ -1,7 +1,6 @@
-package ci.region;
+package ci.region
 
 def bunchOfScripts
-def scriptWithCall
 
 pipeline {
     agent any
@@ -12,7 +11,6 @@ pipeline {
                 echo 'Building..'
                 script {
                     bunchOfScripts = load "ci/src/main/groovy/script/BunchOfScripts.groovy"
-                    scriptWithCall = new ScriptWithCall()
                 }
             }
         }
@@ -21,7 +19,6 @@ pipeline {
                 echo 'Testing..'
                 script {
                     //echo bunchOfScripts.getProperty('FirstClass').a() не разрешено
-                    echo scriptWithCall.call()
                 }
             }
         }
