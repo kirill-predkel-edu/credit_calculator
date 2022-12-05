@@ -1,4 +1,4 @@
-package ci.region
+package ci.region;
 
 def bunchOfScripts
 def scriptWithCall
