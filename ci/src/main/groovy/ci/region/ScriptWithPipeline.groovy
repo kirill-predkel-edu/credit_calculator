@@ -2,21 +2,27 @@ package ci.region
 
 def call(int buildNumber) {
     if (buildNumber % 2 == 0) {
-        stage('Even Stage') {
-            steps {
-                echo "The build number is even"
+        pipeline {
+            agent any
+            stages {
+                stage('Even Stage') {
+                    steps {
+                        echo "The build number is even"
+                    }
+                }
             }
         }
-
-
     } else {
-        stage('Odd Stage') {
-            steps {
-                echo "The build number is odd"
+        pipeline {
+            agent any
+            stages {
+                stage('Odd Stage') {
+                    steps {
+                        echo "The build number is odd"
+                    }
+                }
             }
         }
     }
 }
-
-
 return this
