@@ -21,7 +21,7 @@ pipeline {
                 echo 'Testing..'
                 script {
                     //echo bunchOfScripts.getProperty('FirstClass').a() не разрешено
-                    echo scriptWithCall(10)
+                    echo scriptWithCall.call()
                 }
             }
         }

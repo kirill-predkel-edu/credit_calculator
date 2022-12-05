@@ -1,6 +1,8 @@
 package ci.region
 
-def call() {
-    return "first"
+class ScriptWithCall {
+    def call() {
+        return "first"
+    }
 }
-return this
+
