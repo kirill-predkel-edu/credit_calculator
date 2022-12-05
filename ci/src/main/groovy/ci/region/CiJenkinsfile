@@ -25,6 +25,6 @@ pipeline {
         }
       }
     }
-    scriptWithPipeline(10)
+    scriptWithPipeline.call(10)
   }
 }
