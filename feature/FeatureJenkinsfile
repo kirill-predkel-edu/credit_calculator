@@ -1,4 +1,5 @@
 @Library("Shared1") l1
+@Library("Shared2") l2
 def module
 
 pipeline {
@@ -9,6 +10,7 @@ pipeline {
       steps {
         echo 'Building..'
         stress()
+        helloWorld()
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
