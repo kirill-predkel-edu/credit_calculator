@@ -1,6 +1,7 @@
 @Library("Shared1") l1
 @Library("Shared2") l2
 def module
+def a
 
 pipeline {
   agent any
@@ -10,7 +11,7 @@ pipeline {
       steps {
         echo 'Building..'
         stress()
-        def a = helloWorld()
+        a = helloWorld()
         println(a)
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
