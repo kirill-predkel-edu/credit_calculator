@@ -1,5 +1,5 @@
 
 
 def call() {
-  sh "echo hello world in test"
+  echo " hello world in test"
 }
