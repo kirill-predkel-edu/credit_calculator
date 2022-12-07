@@ -2,11 +2,12 @@ package script
 
 import groovy.transform.Field
 
-static def getStaticString() {
-    return "test jenkins file is running"
+class StaticScript {
+    static def getStaticString() {
+        return "test jenkins file is running"
+    }
+
+    String name = "test jenkins file is running"
 }
 
-@Field
-String name = "test jenkins file is running"
 
-return this

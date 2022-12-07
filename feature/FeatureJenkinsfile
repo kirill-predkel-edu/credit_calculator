@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo 'Testing..'
         script {
-          echo module.name
+          echo module.getStaticString()
         }
       }
     }
