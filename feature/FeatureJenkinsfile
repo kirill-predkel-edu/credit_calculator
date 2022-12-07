@@ -1,5 +1,4 @@
-@Library("Shared1") l1
-@Library("Shared2") l2
+@Library(['Shared1', 'Shared2']) _
 def module
 
 pipeline {
