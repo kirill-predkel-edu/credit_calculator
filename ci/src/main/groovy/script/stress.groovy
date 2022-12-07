@@ -1,5 +1,5 @@
 package script
 
-def call(args) {
-  sh "${args}"
+def call() {
+  sh "echo hello world"
 }
