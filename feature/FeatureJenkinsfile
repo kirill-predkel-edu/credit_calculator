@@ -10,7 +10,7 @@ pipeline {
         echo 'Building..'
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
-          stress()
+          stress
         }
       }
     }
