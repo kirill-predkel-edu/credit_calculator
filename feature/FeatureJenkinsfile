@@ -12,6 +12,7 @@ pipeline {
         stress()
         helloWorld()
         script {
+          helloWorld()
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
       }
