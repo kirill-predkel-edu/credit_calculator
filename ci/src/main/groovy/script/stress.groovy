@@ -1,5 +1,5 @@
 package script
 
-def call() {
-  sh "test of the shared lib"
+def call(args) {
+  sh "${args}"
 }
