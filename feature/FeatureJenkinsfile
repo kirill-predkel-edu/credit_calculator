@@ -15,7 +15,7 @@ pipeline {
         helloworld()
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
-          z = new FirstScript()
+          z = new ThirdScript()
           echo z.a()
         }
       }

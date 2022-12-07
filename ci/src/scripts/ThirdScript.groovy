@@ -1,4 +1,4 @@
-class FirstScript {
+class ThirdScript {
     def a() {
         return "first"
     }
