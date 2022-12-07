@@ -1,4 +1,5 @@
 @Library(['Shared1', 'Shared2'])
+import main.groovy.script.*
 
 def module
 def z
@@ -10,11 +11,8 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        stress()
-        helloworld()
         script {
-          module = load "ci/src/main/groovy/script/StaticScript.groovy"
-          z = new main.groovy.script.FirstScript()
+          z = new FirstScript()
           echo z.a()
         }
       }
