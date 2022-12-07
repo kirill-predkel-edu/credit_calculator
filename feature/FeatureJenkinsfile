@@ -10,9 +10,9 @@ pipeline {
       steps {
         echo 'Building..'
         stress()
-        helloWorld()
+        def a = helloWorld()
+        println(a)
         script {
-          helloWorld()
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
       }
