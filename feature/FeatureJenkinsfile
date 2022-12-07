@@ -1,5 +1,5 @@
 @Library(['Shared1', 'Shared2']) _
-import script.*
+import script.FirstScript
 
 def module
 def z
