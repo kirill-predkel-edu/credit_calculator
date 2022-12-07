@@ -1,4 +1,5 @@
 @Library(['Shared1', 'Shared2'])
+import scripts.*
 
 def module
 def z
