@@ -1,3 +1,4 @@
+@Library("Shared1") _
 def module
 
 pipeline {
@@ -9,6 +10,7 @@ pipeline {
         echo 'Building..'
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
+          stress()
         }
       }
     }
