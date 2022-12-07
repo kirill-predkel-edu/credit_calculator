@@ -11,10 +11,10 @@ pipeline {
       steps {
         echo 'Building..'
         stress()
-        a = helloWorld()
-        println(a)
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
+          a = helloWorld()
+          println(a)
         }
       }
     }
