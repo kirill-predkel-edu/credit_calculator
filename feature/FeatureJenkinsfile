@@ -1,5 +1,7 @@
 @Library(['Shared1', 'Shared2']) _
+
 def module
+def z
 
 pipeline {
   agent any
@@ -7,6 +9,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        z = new FirstScript()
+        echo z.a()
         echo 'Building..'
         stress()
         helloworld()
