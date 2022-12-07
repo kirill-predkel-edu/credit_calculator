@@ -1,5 +1,4 @@
 @Library(['Shared1', 'Shared2'])
-import scripts.*
 
 def module
 def z
@@ -15,7 +14,7 @@ pipeline {
         helloworld()
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
-          z = new ThirdScript()
+          z = new scripts.ThirdScript()
           echo z.a()
         }
       }
