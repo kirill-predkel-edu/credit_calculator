@@ -8,7 +8,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building..'
-        l1.stress()
+        stress()
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
         }
