@@ -1,5 +1,4 @@
 @Library("Shared2")
-import main.groovy.script.*
 
 def module
 def z
@@ -14,7 +13,7 @@ pipeline {
         stress()
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
-          z = new FirstScript()
+          z = new main.groovy.script.FirstScript()
           echo z.a()
         }
       }
