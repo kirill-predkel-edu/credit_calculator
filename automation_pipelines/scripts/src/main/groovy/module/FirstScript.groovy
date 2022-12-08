@@ -1,7 +1,12 @@
 package module
 
-class FirstScript {
+class FirstScript implements Serializable {
+    def scriptField
+
+    FirstScript(def scriptField) {
+        this.scriptField = scriptField
+    }
     def a() {
-        return "first from module"
+        return scriptField
     }
 }
