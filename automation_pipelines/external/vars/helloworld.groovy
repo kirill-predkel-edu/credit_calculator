@@ -1,3 +1,3 @@
 def call() {
-  echo " shared2 world in test"
+  echo " shared2 from module world in test"
 }
