@@ -1,1 +1,1 @@
-test: String = "asdasd"
+test = "asdasd"
