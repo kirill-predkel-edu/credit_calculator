@@ -17,6 +17,7 @@ pipeline {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
           z = new FirstScript()
           echo z.a()
+          echo var.test
         }
       }
     }

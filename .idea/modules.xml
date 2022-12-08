@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.external.iml" filepath="$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.external.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.external.main.iml" filepath="$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.external.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.scripts.iml" filepath="$PROJECT_DIR$/.idea/modules/automation_pipelines/external/Credit_Calculator.automation_pipelines.scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/automation_pipelines/scripts/Credit_Calculator.automation_pipelines.scripts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/automation_pipelines/scripts/Credit_Calculator.automation_pipelines.scripts.main.iml" />
     </modules>
   </component>
 </project>
