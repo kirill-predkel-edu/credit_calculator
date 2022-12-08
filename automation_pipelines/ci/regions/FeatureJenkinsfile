@@ -17,7 +17,7 @@ pipeline {
           modular = load "ci/src/main/groovy/script/StaticScript.groovy"
           firstScript = new FirstScript()
           echo firstScript.a()
-          echo secondScript.callName(modular)
+          echo secondScript.callName(this)
           echo secondScript.test
         }
       }
