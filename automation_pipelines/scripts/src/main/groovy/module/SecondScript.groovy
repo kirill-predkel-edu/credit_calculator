@@ -7,7 +7,6 @@ test = "Secondfield"
 
     def a() {
         helloworld()
-        helloworls()
         return "second"
     }
 
