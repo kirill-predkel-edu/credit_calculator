@@ -1,2 +1,1 @@
-@Field
-test = "asdasd"
+test: String = "asdasd"
