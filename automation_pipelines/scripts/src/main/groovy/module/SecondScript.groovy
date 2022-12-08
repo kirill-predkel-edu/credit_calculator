@@ -1,7 +1,12 @@
 package module
 
-class SecondScript {
+import groovy.transform.Field
+
+@Field
+test = "Secondfield"
+
     def a() {
         return "second"
     }
-}
+
+return this
