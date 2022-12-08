@@ -7,7 +7,7 @@ test = "Secondfield"
 
     def callName(modular) {
         helloworld()
-        return modular.name
+        return modular.modular.name
     }
 
 return this
