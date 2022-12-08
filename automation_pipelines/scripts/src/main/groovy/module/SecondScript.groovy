@@ -5,9 +5,9 @@ import groovy.transform.Field
 @Field
 test = "Secondfield"
 
-    def callName(modular) {
+    def callName(env) {
         helloworld()
-        return modular.modular.name
+        return env.toString()
     }
 
 return this
