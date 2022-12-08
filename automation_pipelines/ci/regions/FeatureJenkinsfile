@@ -1,0 +1,32 @@
+@Library(['Shared1', 'Shared2'])
+import main.groovy.script.*
+
+def module
+def z
+
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Building..'
+        stress()
+        helloworld()
+        script {
+          module = load "ci/src/main/groovy/script/StaticScript.groovy"
+          z = new FirstScript()
+          echo z.a()
+        }
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'Testing..'
+        script {
+          echo module.getStaticString()
+        }
+      }
+    }
+  }
+}
