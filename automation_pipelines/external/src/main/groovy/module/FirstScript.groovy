@@ -2,6 +2,6 @@ package module
 
 class FirstScript {
     def a() {
-        return "first"
+        return "first from module"
     }
 }
