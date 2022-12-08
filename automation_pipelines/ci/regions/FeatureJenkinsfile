@@ -1,5 +1,5 @@
 @Library(['Shared1', 'Shared2'])
-import main.groovy.module.*
+import main.groovy.*
 
 def module
 def firstScript
