@@ -7,7 +7,7 @@ test = "Secondfield"
 
     def callName(env) {
         helloworld()
-        return env.env.toString()
+        return env.params.toString()
     }
 
 return this
