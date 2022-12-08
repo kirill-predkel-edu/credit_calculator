@@ -3,7 +3,6 @@ import main.groovy.module.*
 
 def module
 def firstScript
-def secondScript
 
 pipeline {
   agent any
@@ -17,10 +16,9 @@ pipeline {
         script {
           module = load "ci/src/main/groovy/script/StaticScript.groovy"
           firstScript = new FirstScript()
-          secondScript = new SecondScript()
           echo firstScript.a()
-          echo secondScript.a()
-          echo secondScript.test
+          echo SecondScript().a()
+          echo SecondScript().test
         }
       }
     }
