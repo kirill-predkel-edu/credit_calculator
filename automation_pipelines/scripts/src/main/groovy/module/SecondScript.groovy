@@ -6,7 +6,8 @@ import groovy.transform.Field
 test = "Secondfield"
 
     def a() {
-        latam.helloworld()
+        helloworld()
+        helloworls()
         return "second"
     }
 
