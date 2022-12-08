@@ -5,7 +5,7 @@ import groovy.transform.Field
 @Field
 test = "Secondfield"
 
-    def callName() {
+    def callName(modular) {
         helloworld()
         return modular.name
     }
