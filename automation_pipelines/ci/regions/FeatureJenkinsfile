@@ -16,7 +16,7 @@ pipeline {
         stress()
         script {
           modular = load "ci/src/main/groovy/script/StaticScript.groovy"
-          firstScript = new FirstScript("passed script param")
+          firstScript = new FirstScript(this)
           echo firstScript.a()
           echo secondScript.callName(this)
           echo secondScript.test

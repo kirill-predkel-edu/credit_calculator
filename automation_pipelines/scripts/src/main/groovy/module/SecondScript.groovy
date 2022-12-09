@@ -3,7 +3,7 @@ package module
 import groovy.transform.Field
 
 @Field
-test = "${DEFAULT_VERSION}"
+test = "Secondfield"
 
     def callName(env) {
         helloworld()
