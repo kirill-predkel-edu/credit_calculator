@@ -4,6 +4,7 @@ import main.groovy.module.*
 def modular
 def firstScript
 SecondScript secondScript = new SecondScript()
+final DEFAULT_VERSION = 'default'
 
 pipeline {
   agent any
