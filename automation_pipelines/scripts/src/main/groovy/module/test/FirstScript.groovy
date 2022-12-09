@@ -1,4 +1,4 @@
-package module
+package module.test
 
 class FirstScript implements Serializable {
     def scriptField

@@ -1,4 +1,4 @@
-package module
+package module.test
 
 import groovy.transform.Field
 
