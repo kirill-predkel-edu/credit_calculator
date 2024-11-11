@@ -26,7 +26,7 @@ class CreditCalculatorTest {
         0, //Кредитный рейтинг
         1, //Запрошенная сумма
         10, //Срок погашения
-        "автокредит"); //Цель;
+        "автокредит");
     assertFalse(calculator.isCreditTaken(), "Кредит отменён?");
   }
 
