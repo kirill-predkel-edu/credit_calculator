@@ -15,7 +15,6 @@ class CsvSourceTest {
         CreditCalculator.setAreValidationRulesPassed(true);
     }
 
-    // Пример параметризации с использованием @CsvSource
     @ParameterizedTest
     @Tag("CreditScore")
     @CsvSource({

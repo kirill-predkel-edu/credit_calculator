@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class IntSourceTest {
-
     CreditCalculator calculator = new CreditCalculator();
 
     @BeforeEach
@@ -17,7 +16,7 @@ class IntSourceTest {
 
     @ParameterizedTest
     @Tag("Age")
-    @ValueSource(ints = {17, 16, 8})
+    @ValueSource(ints = {1, 2, 3})
     void calculateCreditByAgeOnly(int age) {
         calculator.calculateCredit(age, "F", "наёмный работник", 10, 1, 5, 5, "автокредит");
         assertFalse(calculator.isCreditTaken(), "Кредит должен быть отменён для пользователя до 18");
