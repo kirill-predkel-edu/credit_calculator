@@ -260,6 +260,7 @@ class CreditCalculatorTest {
         20, //Срок погашения
         "ипотека"); //Цель;
     assertTrue(calculator.isCreditTaken(), "Кредит одобрен?");
+    System.out.println("test");
     assertEquals(0.6, calculator.getAnnualPayment(), "Размер годового платежа неверен");
   }
 
