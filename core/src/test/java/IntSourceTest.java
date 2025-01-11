@@ -18,6 +18,7 @@ class IntSourceTest {
     @Tag("Age")
     @ValueSource(ints = {1, 2, 3})
     void calculateCreditByAgeOnly(int age) {
+
         calculator.calculateCredit(age, "F", "наёмный работник", 10, 1, 5, 5, "автокредит");
         assertFalse(calculator.isCreditTaken(), "Кредит должен быть отменён для пользователя до 18");
     }
